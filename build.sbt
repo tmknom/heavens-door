@@ -1,4 +1,4 @@
-name := """play-starter"""
+name := """heavens-door"""
 
 version := "1.0-SNAPSHOT"
 
