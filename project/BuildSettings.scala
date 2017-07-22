@@ -54,6 +54,24 @@ object BuildSettings {
     javaOptions in Test += "-Dconfig.file=conf/test.conf",
 
     /**
+      * Scala コンパイラに警告を色々出してもらう設定
+      *
+      * @see http://qiita.com/kawachi/items/1c1d063de91c5445e8bc
+      */
+    scalacOptions ++= Seq(
+      "-deprecation", // @deprecated な API を使用している
+      "-feature", // 実験的な機能や注意すべき機能を使用している
+      "-unchecked", // 型消去などでパターンマッチが有効に機能しない
+      "-Xlint", // 様々な警告を出す
+      "-Ywarn-dead-code", // Warn when dead code is identified.
+      "-Ywarn-numeric-widen", // Warn when numerics are widened.
+      "-Ywarn-unused", // Warn when local and private vals, vars, defs, and types are unused.
+      "-Ywarn-unused-import", // Warn when imports are unused.
+      "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
+      //, "-Xfatal-warning" // 警告をエラーとして扱う
+    ),
+
+    /**
       * ScalaTest のオプション設定
       *
       * -oD : テストケースごとに実行時間の表示
