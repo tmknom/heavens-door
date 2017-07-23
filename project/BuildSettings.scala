@@ -56,6 +56,11 @@ object BuildSettings {
     /**
       * Scala コンパイラに警告を色々出してもらう設定
       *
+      * -Ywarn-unused をコメントアウトしている理由は routes が警告を出すためである。
+      * 出力される警告は下記の通り。
+      *
+      * pattern var params in method applyOrElse is never used; 'params@_' suppresses this warning
+      *
       * @see http://qiita.com/kawachi/items/1c1d063de91c5445e8bc
       */
     scalacOptions ++= Seq(
@@ -65,7 +70,7 @@ object BuildSettings {
       "-Xlint", // 様々な警告を出す
       "-Ywarn-dead-code", // Warn when dead code is identified.
       "-Ywarn-numeric-widen", // Warn when numerics are widened.
-      "-Ywarn-unused", // Warn when local and private vals, vars, defs, and types are unused.
+      //"-Ywarn-unused", // Warn when local and private vals, vars, defs, and types are unused.
       "-Ywarn-unused-import", // Warn when imports are unused.
       "-Ywarn-value-discard" // Warn when non-Unit expression results are unused.
       //, "-Xfatal-warning" // 警告をエラーとして扱う
